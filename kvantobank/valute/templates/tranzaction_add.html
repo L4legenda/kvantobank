@@ -1,3 +1,4 @@
+{% load material_form %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +12,8 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <title>Document</title>
+    <!-- {% include 'material/includes/material_css.html' %} -->
+    
 </head>
 <body>
     <nav>
@@ -27,25 +30,19 @@
       </nav>
 
 
-      <table class="container" style="margin-top: 160px;">
-        <thead>
-          <tr>
-              <th>Номер отряда</th>
-              <th>Название отряда</th>
-              <th>Деньги</th>
-          </tr>
-        </thead>
+      <div class="container" style="margin-top: 30px">
+        <div class="row">
+          <form method="POST" action="/tranzaction_add/">
+            {% csrf_token %}
+            {% form form=form %}{% endform %}
+            <button type="submit" name="_submit" class="btn">Выполнить</button>
+          </form>
+        </div>
+      </div>
 
-        <tbody>
-            {% for p in party %}
-          <tr>
-            <td>{{ p.number_party }}</td>
-            <td>{{ p.name }}</td>
-            <td>{{ p.money }} ₽</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    
+
+
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% include 'material/includes/material_js.html' %}
 </html>

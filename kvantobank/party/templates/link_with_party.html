@@ -33,6 +33,8 @@
               <th>Номер отряда</th>
               <th>Название отряда</th>
               <th>Деньги</th>
+              <th>Номер карточки</th>
+              <th></th>
           </tr>
         </thead>
 
@@ -42,6 +44,14 @@
             <td>{{ p.number_party }}</td>
             <td>{{ p.name }}</td>
             <td>{{ p.money }} ₽</td>
+            <td>{{ p.card }}</td>
+            <td>
+              <form action="" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="number_party" value="{{ p.number_party }}">
+                <button class="btn" type="submit">Привязать</button>
+              </form>
+            </td>
           </tr>
           {% endfor %}
         </tbody>

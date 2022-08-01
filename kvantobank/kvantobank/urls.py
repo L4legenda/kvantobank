@@ -16,8 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from party.views import *
+from request_card.views import *
+from valute.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', list_party),
+    path('send_card/', send_card),
+    path('link_with_party/', link_card_to_party),
+    path('valute/', valute_view),
+    path('tranzaction_add/', tranzaction_add),
+    path('tranzaction_remove/', tranzaction_remove),
+    
 ]

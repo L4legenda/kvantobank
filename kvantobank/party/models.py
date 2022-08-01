@@ -5,7 +5,7 @@ import uuid
 class Party(models.Model):
     number_party = models.IntegerField(verbose_name='Номер отряда')
     name = models.CharField(verbose_name='Название отряда', max_length=255)
-    token_qr = models.CharField(verbose_name='Номер qr', max_length=255, default=uuid.uuid4())
+    card = models.IntegerField(verbose_name='Номер карточки', default=0)
     money = models.IntegerField(verbose_name='Деньги', default=0)
 
     def __str__(self) -> str:
